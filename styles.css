@@ -109,11 +109,14 @@ h1 em, h2 em { color: var(--orange); font-style: normal; }
 .auto-symbol b { position: absolute; width: 210px; height: 210px; border: 1px solid var(--card-color); border-radius: 50%; border-left-color: transparent; animation: spin 10s linear infinite; }
 .task-symbol span { font-size: 3.5rem; }.task-symbol i { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--card-color); box-shadow: 0 0 14px var(--card-color); }.task-symbol i:nth-child(2) { transform: translate(-105px, 75px); }.task-symbol i:nth-child(3) { transform: translate(105px, -75px); }
 
-.method { padding: 140px 4vw; display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; background: var(--orange); color: var(--ink); }
-.method .section-index { color: rgba(11,12,12,.55); }.method h2 em { color: white; }.method-sticky { position: sticky; top: 80px; align-self: start; }
-.method-sticky p { max-width: 450px; margin-top: 38px; font-size: 1rem; line-height: 1.8; }
-.method-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(11,12,12,.35); }
-.method-list li { min-height: 115px; display: grid; grid-template-columns: 50px 1fr 25px; gap: 15px; align-items: center; border-bottom: 1px solid rgba(11,12,12,.35); }
+.method { position: relative; padding: 140px 4vw; display: grid; grid-template-columns: .9fr 1.1fr; gap: 10vw; overflow: hidden; background: #17120f; color: var(--paper); }
+.method:before { content: ""; position: absolute; width: 620px; height: 620px; left: -260px; bottom: -320px; border-radius: 50%; background: var(--orange); filter: blur(170px); opacity: .12; }
+.method > * { position: relative; z-index: 1; }
+.method .section-index { color: #92776b; }.method h2 em { color: var(--orange); }.method-sticky { position: sticky; top: 80px; align-self: start; }
+.method-sticky p { max-width: 450px; margin-top: 38px; color: #a89f99; font-size: 1rem; line-height: 1.8; }
+.method-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid rgba(233,231,223,.18); }
+.method-list li { min-height: 115px; display: grid; grid-template-columns: 50px 1fr 25px; gap: 15px; align-items: center; border-bottom: 1px solid rgba(233,231,223,.18); transition: color .25s, padding .25s; }
+.method-list li:hover { padding-left: 8px; color: var(--orange); }
 .method-list span { font: 10px var(--mono); }.method-list h3 { margin: 0; font: 600 clamp(1.3rem, 2vw, 2rem) var(--display); letter-spacing: -.045em; }
 .method-list i { font: normal 1.5rem var(--mono); transition: transform .3s; }.method-list li:hover i { transform: rotate(45deg); }
 
