@@ -1,3 +1,22 @@
+const bootSequence = document.querySelector(".boot-sequence");
+const bootSkip = document.querySelector(".boot-skip");
+
+const finishBoot = () => {
+  bootSequence?.classList.add("done");
+  document.body.classList.remove("booting");
+  sessionStorage.setItem("af-boot-seen", "true");
+};
+
+if (bootSequence) {
+  if (sessionStorage.getItem("af-boot-seen") === "true" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    finishBoot();
+  } else {
+    document.body.classList.add("booting");
+    window.setTimeout(finishBoot, 3100);
+  }
+  bootSkip?.addEventListener("click", finishBoot);
+}
+
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -21,3 +40,14 @@ if (heroVisual && window.matchMedia("(pointer: fine)").matches) {
     heroVisual.style.transform = `translate3d(${x}px, ${y}px, 0)`;
   });
 }
+
+const proofReadout = document.querySelector(".proof-readout strong");
+const graphNodes = document.querySelectorAll(".graph-node");
+
+graphNodes.forEach((node) => {
+  node.addEventListener("click", () => {
+    graphNodes.forEach((item) => item.classList.remove("active"));
+    node.classList.add("active");
+    if (proofReadout) proofReadout.textContent = node.dataset.proof;
+  });
+});
