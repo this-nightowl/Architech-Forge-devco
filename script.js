@@ -1,22 +1,3 @@
-const bootSequence = document.querySelector(".boot-sequence");
-const bootSkip = document.querySelector(".boot-skip");
-
-const finishBoot = () => {
-  bootSequence?.classList.add("done");
-  document.body.classList.remove("booting");
-  sessionStorage.setItem("af-boot-seen", "true");
-};
-
-if (bootSequence) {
-  if (sessionStorage.getItem("af-boot-seen") === "true" || window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 560px)").matches) {
-    finishBoot();
-  } else {
-    document.body.classList.add("booting");
-    window.setTimeout(finishBoot, 2100);
-  }
-  bootSkip?.addEventListener("click", finishBoot);
-}
-
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -30,16 +11,6 @@ document.querySelectorAll(".reveal").forEach((element, index) => {
   element.style.transitionDelay = `${Math.min(index % 3, 2) * 35}ms`;
   revealObserver.observe(element);
 });
-
-const heroVisual = document.querySelector(".hero-visual");
-
-if (heroVisual && window.matchMedia("(pointer: fine)").matches) {
-  window.addEventListener("pointermove", (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 12;
-    const y = (event.clientY / window.innerHeight - 0.5) * 12;
-    heroVisual.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-  });
-}
 
 const proofReadout = document.querySelector(".proof-readout strong");
 const mobileProofReadout = document.querySelector(".mobile-proof-readout strong");
@@ -85,3 +56,28 @@ if (window.matchMedia("(max-width: 560px)").matches) {
     rail.querySelectorAll(".product-card, .proof-tile").forEach((card) => focusObserver.observe(card));
   });
 }
+
+const ventureTabs = document.querySelectorAll(".venture-tab");
+const ventureDetail = document.querySelector(".venture-detail");
+
+ventureTabs.forEach((tab) => {
+  tab.style.setProperty("--active-color", tab.dataset.color);
+  tab.addEventListener("click", () => {
+    ventureTabs.forEach((item) => {
+      item.classList.remove("active");
+      item.setAttribute("aria-selected", "false");
+    });
+    tab.classList.add("active");
+    tab.setAttribute("aria-selected", "true");
+    if (!ventureDetail) return;
+    ventureDetail.style.setProperty("--detail-color", tab.dataset.color);
+    ventureDetail.querySelector(".detail-number").textContent = tab.dataset.number;
+    ventureDetail.querySelector(".detail-status").textContent = tab.dataset.status;
+    ventureDetail.querySelector(".detail-category").textContent = tab.dataset.category;
+    ventureDetail.querySelector(".detail-name").textContent = tab.dataset.name;
+    ventureDetail.querySelector(".detail-summary").textContent = tab.dataset.summary;
+    const link = ventureDetail.querySelector(".detail-link");
+    link.href = tab.dataset.url;
+    link.querySelector("span").textContent = tab.dataset.domain;
+  });
+});
