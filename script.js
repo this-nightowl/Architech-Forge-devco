@@ -8,11 +8,11 @@ const finishBoot = () => {
 };
 
 if (bootSequence) {
-  if (sessionStorage.getItem("af-boot-seen") === "true" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (sessionStorage.getItem("af-boot-seen") === "true" || window.matchMedia("(prefers-reduced-motion: reduce), (max-width: 560px)").matches) {
     finishBoot();
   } else {
     document.body.classList.add("booting");
-    window.setTimeout(finishBoot, 3100);
+    window.setTimeout(finishBoot, 2100);
   }
   bootSkip?.addEventListener("click", finishBoot);
 }
@@ -27,7 +27,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll(".reveal").forEach((element, index) => {
-  element.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+  element.style.transitionDelay = `${Math.min(index % 3, 2) * 35}ms`;
   revealObserver.observe(element);
 });
 
