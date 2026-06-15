@@ -81,3 +81,71 @@ ventureTabs.forEach((tab) => {
     link.querySelector("span").textContent = tab.dataset.domain;
   });
 });
+
+const methodOptions = document.querySelectorAll(".method-option");
+const methodOutput = document.querySelector(".method-output");
+
+methodOptions.forEach((option) => {
+  option.addEventListener("click", () => {
+    methodOptions.forEach((item) => {
+      item.classList.remove("active");
+      item.setAttribute("aria-selected", "false");
+    });
+    option.classList.add("active");
+    option.setAttribute("aria-selected", "true");
+    methodOutput.querySelector("span").textContent = option.dataset.signal;
+    methodOutput.querySelector("h3").textContent = option.dataset.label;
+    methodOutput.querySelector("p").textContent = option.dataset.output;
+  });
+});
+
+const ledgerFilters = document.querySelectorAll(".ledger-filter");
+const ledgerRows = document.querySelectorAll(".ledger-row");
+
+ledgerFilters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    ledgerFilters.forEach((item) => item.classList.remove("active"));
+    filter.classList.add("active");
+    ledgerRows.forEach((row) => {
+      row.classList.toggle("hidden", filter.dataset.filter !== "all" && row.dataset.type !== filter.dataset.filter);
+    });
+  });
+});
+
+const thesisTabs = document.querySelectorAll(".thesis-tab");
+const founderQuote = document.querySelector(".founder-quote");
+const thesisCopy = document.querySelector(".thesis-copy");
+
+thesisTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    thesisTabs.forEach((item) => {
+      item.classList.remove("active");
+      item.setAttribute("aria-selected", "false");
+    });
+    tab.classList.add("active");
+    tab.setAttribute("aria-selected", "true");
+    founderQuote.textContent = tab.dataset.title;
+    thesisCopy.textContent = tab.dataset.copy;
+  });
+});
+
+const configPaths = {
+  venture: { title: "Venture Architecture", copy: "Turn the concept into a coherent product, business, and technical system.", meta: "STRATEGY / SYSTEM DESIGN / ROADMAP", subject: "Venture Architecture", color: "#ff4d00" },
+  engineering: { title: "AI Systems Engineering", copy: "Build agents, automation engines, graph intelligence, and durable AI workflows.", meta: "ARCHITECTURE / PROTOTYPE / BUILD", subject: "AI Systems Engineering", color: "#4ee8ff" },
+  launch: { title: "Launch Execution", copy: "Move from powerful system to market-ready product with clarity, identity, and force.", meta: "PRODUCT / IDENTITY / LAUNCH", subject: "Launch Execution", color: "#56d69b" }
+};
+const configChoices = document.querySelectorAll(".config-choice");
+const configResult = document.querySelector(".config-result");
+
+configChoices.forEach((choice) => {
+  choice.addEventListener("click", () => {
+    configChoices.forEach((item) => item.classList.remove("active"));
+    choice.classList.add("active");
+    const path = configPaths[choice.dataset.path];
+    configResult.style.setProperty("--config-color", path.color);
+    configResult.querySelector("h3").textContent = path.title;
+    configResult.querySelector("p").textContent = path.copy;
+    configResult.querySelector("small").textContent = path.meta;
+    configResult.querySelector("a").href = `mailto:contact@architechforge.com?subject=${encodeURIComponent(path.subject)}`;
+  });
+});
