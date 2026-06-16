@@ -228,15 +228,15 @@ h1 { max-width: 760px; margin-top: 25px; font-size: clamp(3.8rem, 6.3vw, 7.2rem)
 
 .info-page { background: #0c0d0d; }
 .info-header { position: fixed; background: rgba(11,12,12,.74); backdrop-filter: blur(18px) saturate(140%); }
-.info-hero { min-height: 92vh; padding: 170px 4vw 90px; display: grid; grid-template-columns: 1fr .78fr; gap: 7vw; align-items: center; background: radial-gradient(circle at 76% 28%, rgba(255,77,0,.12), transparent 34%), #0d0e0e; }
+.info-hero { min-height: 78vh; padding: 150px 4vw 80px; display: grid; grid-template-columns: 1.12fr .68fr; gap: 7vw; align-items: start; background: radial-gradient(circle at 76% 28%, rgba(255,77,0,.12), transparent 34%), #0d0e0e; }
 .info-hero h1 { font-size: clamp(4rem, 7.5vw, 9rem); }
-.identity-card { padding: 26px; border: 1px solid #303232; background: linear-gradient(145deg, rgba(255,77,0,.06), rgba(255,255,255,.015)); }
+.identity-card { align-self: center; padding: 28px; border: 1px solid #303232; background: linear-gradient(145deg, rgba(255,77,0,.06), rgba(255,255,255,.015)); }
 .identity-portrait { position: relative; margin-bottom: 18px; padding: 10px; border: 1px solid #303232; background: #0b0c0c; }
 .identity-portrait:before { content: ""; position: absolute; inset: 10px; z-index: 1; pointer-events: none; background: radial-gradient(circle at 50% 20%, transparent 35%, rgba(11,12,12,.12)), linear-gradient(to top, rgba(11,12,12,.5), transparent 45%); }
 .identity-portrait img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 33%; filter: saturate(.94) contrast(1.04); }
-.identity-card .identity-wordmark { display: block; width: 100%; max-width: 330px; margin-bottom: 38px; opacity: .72; }
+.identity-card .identity-wordmark { display: block; width: 100%; max-width: 330px; margin-bottom: 52px; opacity: .72; }
 .identity-card > span { color: #777d7a; font: 7px var(--mono); letter-spacing: .13em; }
-.identity-card h2 { margin: 70px 0 8px; font-size: clamp(2.7rem, 4.5vw, 5rem); }
+.identity-card h2 { margin: 34px 0 8px; font-size: clamp(2.7rem, 4.5vw, 5rem); }
 .identity-card p { margin: 0 0 28px; color: var(--orange); font: 500 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; }
 .identity-card a { display: flex; justify-content: space-between; padding-top: 14px; border-top: 1px solid #303232; color: #c4c8c5; font: 7px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
 .identity-card b { color: var(--orange); }
@@ -249,6 +249,11 @@ h1 { max-width: 760px; margin-top: 25px; font-size: clamp(3.8rem, 6.3vw, 7.2rem)
 .info-panel.dark .info-copy p { color: #8b918e; }
 .info-stack { display: grid; gap: 10px; }
 .info-stack span { padding: 13px 14px; border: 1px solid #c8c6bd; color: #6d6b64; font: 7px var(--mono); letter-spacing: .1em; }
+.founder-photo-panel { align-self: stretch; display: flex; flex-direction: column; gap: 14px; }
+.founder-photo-panel .identity-portrait { margin: 0; border-color: #c8c6bd; background: #d3d1c9; }
+.founder-photo-panel .identity-portrait:after { content: "IAN PASSALOUKAS / CHIEF ARCHITECH"; position: absolute; z-index: 2; left: 22px; right: 22px; bottom: 22px; padding-top: 12px; border-top: 1px solid rgba(233,231,223,.42); color: var(--paper); font: 7px var(--mono); letter-spacing: .12em; }
+.founder-photo-panel .identity-portrait img { aspect-ratio: 4 / 4.6; object-position: 50% 31%; }
+.founder-photo-panel .info-stack { margin-top: auto; }
 .relationship-grid { display: grid; gap: 1px; border: 1px solid #303232; background: #303232; }
 .relationship-grid article { padding: 22px; background: #151616; }
 .relationship-grid span { color: #777d7a; font: 7px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
@@ -327,8 +332,9 @@ h1 { max-width: 760px; margin-top: 25px; font-size: clamp(3.8rem, 6.3vw, 7.2rem)
   .ledger-filters { overflow-x: auto; }.ledger-filter { white-space: nowrap; }.ledger-row { grid-template-columns: 45px 1fr auto; gap: 8px; min-height: 70px; padding: 10px; }.ledger-row p { grid-column: 2/-1; margin: -8px 0 0; }.ledger-row i { text-align: right; }
   .founder { grid-template-columns: 1fr; }.thesis-tab { min-height: 65px; }.founder-quote { font-size: 2rem; }
   .engagement-configurator { grid-template-columns: 1fr; }.config-question { padding: 16px; border-right: 0; border-bottom: 1px solid #303232; }.config-question div { margin-top: 20px; }.config-choice { min-height: 52px; }.config-result { min-height: 270px; padding: 16px; }.config-result h3 { font-size: 2.6rem; }
-  .info-hero { padding: 105px 20px 58px; }.info-hero h1 { font-size: 3rem; }.identity-card { padding: 18px; }.identity-card img { margin-bottom: 26px; }.identity-card h2 { margin-top: 42px; font-size: 2.7rem; }
+  .info-hero { min-height: auto; padding: 95px 20px 46px; }.info-hero h1 { font-size: 3rem; }.identity-card { padding: 18px; }.identity-card .identity-wordmark { margin-bottom: 28px; }.identity-card h2 { margin-top: 24px; font-size: 2.7rem; }
   .info-panel, .contact-panel { padding: 58px 20px; }.info-copy h2, .contact-panel h2 { font-size: 2.45rem; }.info-copy p, .contact-card p { font-size: .8rem; }.info-stack span { font-size: 6px; }.relationship-grid strong { margin-top: 24px; font-size: 1.35rem; }
+  .founder-photo-panel { gap: 12px; }.founder-photo-panel .identity-portrait { padding: 8px; }.founder-photo-panel .identity-portrait img { aspect-ratio: 4 / 4.25; }.founder-photo-panel .identity-portrait:after { left: 18px; right: 18px; bottom: 18px; font-size: 6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
