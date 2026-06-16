@@ -1,0 +1,15 @@
+<svg width="960" height="280" viewBox="0 0 960 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Architech Forge wordmark light</title>
+  <desc id="desc">The Architech Forge name with the sideways F mark on a transparent background.</desc>
+  <g transform="translate(80 140) rotate(45) translate(-45 -45)" fill="#FF4D00">
+    <rect x="0" y="0" width="24" height="90" rx="4"/>
+    <rect x="33" y="24" width="24" height="66" rx="4"/>
+    <rect x="66" y="48" width="24" height="42" rx="4"/>
+  </g>
+  <text x="188" y="121" fill="#E9E7DF" font-family="Space Grotesk, Manrope, Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="-3">ARCHITECH</text>
+  <text x="188" y="185" fill="#E9E7DF" font-family="Space Grotesk, Manrope, Arial, sans-serif" font-size="58" font-weight="700" letter-spacing="-3">FORGE</text>
+  <path d="M705 80H882" stroke="#FF4D00" stroke-width="4" stroke-linecap="round"/>
+  <text x="705" y="132" fill="#8C8F8B" font-family="DM Mono, Menlo, monospace" font-size="18" letter-spacing="5">FUTURE SYSTEMS</text>
+  <text x="705" y="170" fill="#8C8F8B" font-family="DM Mono, Menlo, monospace" font-size="18" letter-spacing="5">FORGED INTO</text>
+  <text x="705" y="208" fill="#8C8F8B" font-family="DM Mono, Menlo, monospace" font-size="18" letter-spacing="5">PRODUCTS</text>
+</svg>

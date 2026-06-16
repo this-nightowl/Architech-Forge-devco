@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Architech Forge mark</title>
+  <desc id="desc">A rotated three-bar forge mark forming a sideways F.</desc>
+  <rect width="512" height="512" rx="96" fill="#0B0C0C"/>
+  <g transform="translate(256 256) rotate(45) translate(-117 -117)" fill="#FF4D00">
+    <rect x="0" y="0" width="62" height="234" rx="10"/>
+    <rect x="86" y="62" width="62" height="172" rx="10"/>
+    <rect x="172" y="124" width="62" height="110" rx="10"/>
+  </g>
+</svg>
