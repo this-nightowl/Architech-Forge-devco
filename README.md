@@ -13,7 +13,21 @@ Business and portfolio website for Architech Forge LLC.
 
 ## Local preview
 
-Open `index.html` directly or serve the directory with a static file server.
+Open `index.html` directly, serve the directory with a static file server, or run:
+
+```bash
+npm run start
+```
+
+## Deployment
+
+This is a static site. The included `package.json` gives deployment hosts a no-dependency build command:
+
+```bash
+npm run build
+```
+
+The build output is written to `dist/`.
 
 ## License
 
